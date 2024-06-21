@@ -1,2 +1,2 @@
 #pattern  filter=crypt diff=crypt merge=crypt
-super-secret-file.txt  filter=crypt diff=crypt merge=crypt
+super-secret-command.sh  filter=crypt diff=crypt merge=crypt
