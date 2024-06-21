@@ -12,6 +12,8 @@ keeping sensitive information secure from unauthorized access. Since Transcrypt 
 and integrates with things like git diff, git merge, and git blame, etc.  The diffs on your local system will appear
 decrypted, but the files will be encrypted in the repository and in pull requests.
 
+This repository is meant to show how to use Transcrypt in a simple example and in CI systems. 
+
 ## Configuration
 1. Install Transcrypt
 ```bash
@@ -38,6 +40,14 @@ Run the following command to encrypt a file and add it to the repository
 ./add-secret.sh <file>
 ```
 and commit the changes.
+
+## Configuring a new repository
+To configure a new repository, run the following command
+```bash
+transcrypt
+```
+The tool will prompt you for a password. This password will be used to encrypt and decrypt the files and should be shared with collaborators.
+
 
 ## Caveats
 - Do not rename secret files after encrypting them. This will cause the decryption to fail and/or the file to be committed in plaintext by mistake. To rename a file, remove the entry from the `.gitattributes` file, rename the file, and re-add it with the above command.
