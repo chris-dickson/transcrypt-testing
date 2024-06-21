@@ -22,7 +22,7 @@ sudo wget -O /usr/local/bin/transcrypt https://raw.githubusercontent.com/elastic
 
 2. Clone this repository
 ```bash
-git clone https://github.com/chris-dickson/transcrypt-testing.git
+git clone git@github.com:chris-dickson/transcrypt-testing.git
 ```
 
 3. Configure Transcrypt
