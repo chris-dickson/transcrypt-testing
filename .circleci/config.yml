@@ -21,7 +21,7 @@ jobs:
     steps:
       - install-transcrypt
       - checkout
-      - decrypt-secrets
+#      - decrypt-secrets
       - run:
           name: Test Decrypted Secret
           command: |
