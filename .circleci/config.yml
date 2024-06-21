@@ -1,0 +1,20 @@
+version: '2.1'
+commands:
+  install-transcrypt:
+    description: Install Transcrypt
+    steps:
+      - run:
+          name: Install Transcrypt
+          command: |
+            sudo wget -O /usr/local/bin/transcrypt https://raw.githubusercontent.com/elasticdog/transcrypt/v2.2.3/transcrypt && sudo chmod +x /usr/local/bin/transcrypt
+jobs:
+  build:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - install-transcrypt
+      - checkout
+workflows:
+  build:
+    jobs:
+      - build
