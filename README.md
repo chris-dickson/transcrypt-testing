@@ -2,6 +2,16 @@
 
 This is meant to be a simple example of using Transcrypt to encrypt and decrypt files that are committed to Git. 
 
+[Transcrypt](https://github.com/elasticdog/transcrypt) script to configure transparent encryption of sensitive files 
+stored in a Git repository. Files that you choose will be automatically encrypted when you commit them, and 
+automatically decrypted when you check them out. The process will degrade gracefully, so even people without your 
+encryption password can safely commit changes to the repository's non-encrypted files.
+
+This allows you to configure a repository with a single secret key that can be shared with collaborators, while
+keeping sensitive information secure from unauthorized access. Since Transcrypt is a Git filter, it is transparent
+and integrates with things like git diff, git merge, and git blame, etc.  The diffs on your local system will appear
+decrypted, but the files will be encrypted in the repository and in pull requests.
+
 ## Configuration
 1. Install Transcrypt
 ```bash
