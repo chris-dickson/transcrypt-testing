@@ -7,6 +7,12 @@ commands:
           name: Install Transcrypt
           command: |
             sudo wget -O /usr/local/bin/transcrypt https://raw.githubusercontent.com/elasticdog/transcrypt/v2.2.3/transcrypt && sudo chmod +x /usr/local/bin/transcrypt
+  decrypt-secrets:
+    description: Decrypt secrets
+    steps:
+      - run:
+          name: Decrypt secrets
+          command: transcrypt -c aes-256-cbc -p $TRANSCRYPT_PASSWORD
 jobs:
   build:
     docker:
@@ -14,6 +20,12 @@ jobs:
     steps:
       - install-transcrypt
       - checkout
+      - decrypt-secrets
+      - run:
+          name: Test Decrypted Secret
+          command: |
+            # This will fail if the secret is not decrypted
+            ./super-secret-command.sh
 workflows:
   build:
     jobs:
